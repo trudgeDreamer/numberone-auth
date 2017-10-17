@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.numberONe.mapper.OrderMapper">
+	<!--mybatis ehcache缓存配置 -->
+	<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 <cache type="org.mybatis.caches.ehcache.LoggingEhcache" 
+		/> -->
+	<!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,
+		addTime,
+		deleteStatus,
+		finishTime,
+		order_amount,
+		msg,
+		order_id,
+		order_status,
+		payTime,
+		pay_msg,
+		user_id
+	</sql>
+
+	<select id="findChildlists" resultType="com.numberONe.entity.OrderFormMap">
+		select
+		<include refid="selectId" />
+		from ly_orderform
+		where id = #{id}
+	</select>
+	
+</mapper>

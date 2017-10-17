@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/public.css" />
+		<title></title>
+		<style type="text/css">
+			
+			body,html {
+				background: #eee;
+				overflow: hidden;
+			}
+			.last_daohang a {
+				color: #fff;
+			}
+			.last_daohang .content{
+				margin-top: 40px;
+			}
+			.last_daohang .fangShi{
+				width: 100%;
+				height: 50px;
+				border-radius: 10px 10px 0 0;
+			}
+			.last_daohang .money,.wuzi{
+				width: 50%;
+				box-sizing: border-box;
+				font-size: 16px;
+				height: 50px;
+				overflow: hidden;
+				color: #888;
+				text-align: center;
+				line-height: 50px;
+			}
+			.last_daohang .active{
+				background: #fff;
+				color: #4caf50;
+			}
+			.last_daohang .from{
+				width: 100%;
+				height: 260px;
+				background: #fff;
+				padding-left: 10px;
+			}
+			.last_daohang input ,.last_daohang textarea{
+				width: 94%;
+			   	height: 40px;
+			   	resize: none;
+			   	display: block;
+			    box-sizing: border-box;
+			    margin: 0 auto;
+			    border: 0;
+			    outline: none;
+			    border-bottom: 1px solid #ccc;
+			}
+			.last_daohang textarea{
+				 height: 170px;
+				 font-size: 14px;
+				 font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1 class="title">
+			我要捐赠
+		</h1>
+	
+
+		<div class="content">
+			<div class="fangShi">
+				<div class="money float active">
+					捐赠金钱
+				</div>
+				<div class="wuzi float">
+					捐赠物资
+				</div>
+			</div>
+			<div class="from">
+				<input type="text" placeholder="捐赠主题" />
+				<input class="jine" type="number" placeholder="请输入金额（￥）" />
+				<textarea placeholder="捐赠说明" ></textarea>
+			</div>
+			
+			<div class="btn">
+				<a href="my_list.html">
+					确认提交
+				</a>
+			</div>
+
+		</div>
+	</body>
+	<script src="../js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+//			选择捐赠方式
+			$('.fangShi div').click(function(){
+				var that=$(this);
+				if(that.index()==0){
+					$('.jine').attr({
+						"type":"number",
+						"placeholder":"请输入金额（￥）"
+					})
+				}
+				else{
+					$('.jine').attr({
+						"type":"text",
+						"placeholder":"请输入物资名称"
+					})
+				}
+				that.addClass('active').siblings().removeClass('active')
+			})
+			
+			
+			
+//			点击提交按钮
+			$('.btn').click(function(){
+				alert("操作成功")
+			})
+			
+			
+			
+			
+			
+			
+			
+		})
+	</script>
+</html>
